@@ -21,7 +21,7 @@ import javax.swing.table.TableColumn;
  *
  * @author Adrian
  */
-public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableModelListener {
+public class JFMetGaussU3MetNum extends javax.swing.JFrame implements TableModelListener {
 
     JFPreDatoMetJacobiU3MetNum r = new JFPreDatoMetJacobiU3MetNum();
 
@@ -33,14 +33,14 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
     double aux[]=new double[JFPreDatoMetJacobiU3MetNum.numFilasMatriz];
       double aux2[]=new double[JFPreDatoMetJacobiU3MetNum.numFilasMatriz];
        double aux3[]=new double[JFPreDatoMetJacobiU3MetNum.numFilasMatriz];
-       //double errores[]=new double[JFPreDatoMetJacobiU3MetNum.numIteraciones-1];
+      // double errores[]=new double[JFPreDatoMetJacobiU3MetNum.numIteraciones-1];
       String MatrizF[][]= new String[JFPreDatoMetJacobiU3MetNum.numFilasMatriz][JFPreDatoMetJacobiU3MetNum.numIteraciones];
   
          
     /**
      * Creates new form JFMetJacobiU3MetNum
      */
-    public JFMetJacobiU3MetNum() {
+    public JFMetGaussU3MetNum() {
         initComponents();
         //Definir que la ventana aparezca desde el centro de la pantalla...
         setLocationRelativeTo(this);
@@ -61,7 +61,7 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
         //DefaultTableModel  x = new DefaultTableModel(5,6);
         jTable1.setModel(modelo);
         jTable2.setModel(modelo2);
-        jTable3.setModel(modelo3);
+        //jTable3.setModel(modelo3);
         
        jTable4.setModel(tabla);
         /*jTable1.setModel(new ValoresMetJacobiTableModel('A',JFPreDatoMetJacobiU3MetNum.numFilasMatriz,JFPreDatoMetJacobiU3MetNum.numColumnasMatriz));
@@ -81,6 +81,7 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
@@ -90,14 +91,15 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+
+        jLabel8.setText("jLabel8");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -127,7 +129,7 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("MÉTODO DE JACOBI");
+        jLabel3.setText("MÉTODO DE  GAUSS");
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 42)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 51, 0));
@@ -172,19 +174,6 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 1, 12)); // NOI18N
         jLabel5.setText("b) Vector inicial");
 
@@ -214,6 +203,9 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
         ));
         jScrollPane4.setViewportView(jTable4);
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel9.setText("<------------->");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,26 +218,26 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(223, 223, 223)
                         .addComponent(jLabel7))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(0, 20, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,15 +251,15 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31))
         );
@@ -296,11 +288,11 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
             System.out.print(this.X[fil] + ", ");
         }
           System.out.println();
-        for (int fil = 0; fil < JFPreDatoMetJacobiU3MetNum.numFilasMatriz; fil++) {
+        /*for (int fil = 0; fil < JFPreDatoMetJacobiU3MetNum.numFilasMatriz; fil++) {
             String  test= (String)jTable3.getValueAt(fil,0);
             this.C[fil]= Double.parseDouble(test);
             System.out.print( this.C[fil]+ ", ");
-        }
+        }*/
         System.out.println();
         System.out.println("----------------------");
      
@@ -330,8 +322,8 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
         // se asigna e manera horizontal
         // SOLO LO ENTIENDE EDUARDO XDXD
         // TODOS LOS DERECHOS RESERVADOS JAJAJA
-        this.aux= met.multVect(A, X, C);
-        this.aux2= met.multVect(A, X, C);
+        this.aux= met.multVect(A, X, X);
+        this.aux2= met.multVect(A, X, X);
         for(int id= 0; id< JFPreDatoMetJacobiU3MetNum.numIteraciones; id++)
        {
          
@@ -352,7 +344,7 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
             
              }
               
-             this.aux2=  met.multVect(A, this.aux3, C);  
+             this.aux2=  met.multVect(A, this.aux3, X);  
             // solo lo imprime de manera horizontal
               System.out.println();
        }
@@ -429,20 +421,21 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFMetJacobiU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMetGaussU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFMetJacobiU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMetGaussU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFMetJacobiU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMetGaussU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFMetJacobiU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFMetGaussU3MetNum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFMetJacobiU3MetNum().setVisible(true);
+                new JFMetGaussU3MetNum().setVisible(true);
             }
         });
     }
@@ -456,14 +449,14 @@ public class JFMetJacobiU3MetNum extends javax.swing.JFrame implements TableMode
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     // End of variables declaration//GEN-END:variables
 
