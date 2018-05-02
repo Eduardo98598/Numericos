@@ -289,14 +289,24 @@ public class jfMetSimpsonTercioMetNum extends javax.swing.JFrame {
              
                 
                 
-                  int a,b,n;          
+                  int a,b,n, aux;          
         try{ 
                    
-            double suma,resultado,Ax,h[],aih[],faih[],impar, par; 
+            double suma,resultado,Ax,h[],aih[],faih[],impar, par, signo=1; 
             
             n = Integer.parseInt(jtfIteraciones.getText());
                 a=Integer.parseInt(jtfA.getText());
             b=Integer.parseInt(jtfB.getText());
+            
+            if( a>b)
+            {
+            aux= b;
+            b=a;
+            a= aux;
+            signo=-1;
+             JOptionPane.showMessageDialog(null, "Usuario, se aplica la propiedad fundamental del calculo... a=b b=a para -f(x)");
+            }
+            
             if(n>2){
             
             proced=new MetSimpsonTercio();       
@@ -311,18 +321,18 @@ public class jfMetSimpsonTercioMetNum extends javax.swing.JFrame {
                 fila[0]=i;               
                 fila[1]=h[i];
                 fila[2]=aih[i]; 
-                fila[3]=faih[i];
+                fila[3]=signo*faih[i];
                 //fila[4]=K_f[i];
                   tableModelSimpson.addRow(fila);
            }             
             //jtfAx.setText("Ax: "+Ax);
             //suma=proced.suma(K_f, n);
            // resultado=proced.resultado(Ax, suma);
-            jtfimpar.setText(""+impar);
-            jtfpar.setText(""+par);
+            jtfimpar.setText(""+impar*signo);
+            jtfpar.setText(""+par*signo);
             
-            System.out.println(impar  +"---"+ par );
-            jtfresultado.setText(""+proced.resultado(b, a, n));
+            System.out.println(impar*signo +"---"+ par*signo );
+            jtfresultado.setText(""+proced.resultado(b, a, n)*signo);
             }else{
                                
              //  a=Integer.parseInt(jtfA.getText());
@@ -337,11 +347,13 @@ public class jfMetSimpsonTercioMetNum extends javax.swing.JFrame {
            // resultado=proced.resultado(Ax, suma);
             jtfimpar.setText(""+0);
             jtfpar.setText(""+0);
-            System.out.println(proced.prom(b, a));
-                jtfresultado.setText(""+proced.resultado2(b, a, n));
-                JOptionPane.showMessageDialog(null, "Usuario, debe cumplir con el número de iteraciones mínimas (3).");
+            System.out.println(proced.prom(b, a)*signo);
+                jtfresultado.setText(""+proced.resultado2(b, a, n)*signo);
+                JOptionPane.showMessageDialog(null, "Usuario, selecciono el método especial.");
                 jtfIteraciones.requestFocus();
             }
+            
+            
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"¡Oops!. Usuario, usted ingresó un valor incorrecto." + e);
         }                    

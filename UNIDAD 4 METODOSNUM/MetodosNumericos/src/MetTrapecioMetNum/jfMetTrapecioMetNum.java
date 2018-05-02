@@ -254,15 +254,25 @@ public class jfMetTrapecioMetNum extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfBActionPerformed
     public void Calcular(){      
-         int a,b,n;          
+         int a,b,n, aux;          
         try{ 
                    
-            double suma,resultado,Ax,h[],aih[],faih[],sumaux; 
+            double suma,resultado,Ax,h[],aih[],faih[],sumaux, signo=1; 
             
             n = Integer.parseInt(jtfIteraciones.getText());
-            if(n>2){
                 a=Integer.parseInt(jtfA.getText());
             b=Integer.parseInt(jtfB.getText());
+            
+              if( a>b)
+            {
+            aux= b;
+            b=a;
+            a= aux;
+            signo=-1;
+            JOptionPane.showMessageDialog(null, "Usuario, se aplica la propiedad fundamental del calculo... a=b b=a para -f(x)");
+            }
+            if(n>2){
+            
             proced=new MetTrapecio();       
             fila=new Object[n+1]; 
             //Ax=proced.Ax(b, a, n);
@@ -274,16 +284,16 @@ public class jfMetTrapecioMetNum extends javax.swing.JFrame {
                 fila[0]=i;               
                 fila[1]=h[i];
                 fila[2]=aih[i]; 
-                fila[3]=faih[i];
+                fila[3]=signo*faih[i];
                 //fila[4]=K_f[i];
                 tableModelTrapecio.addRow(fila);
            }             
             //jtfAx.setText("Ax: "+Ax);
             //suma=proced.suma(K_f, n);
            // resultado=proced.resultado(Ax, suma);
-            jtfsuma.setText(""+sumaux);
+            jtfsuma.setText(""+sumaux*signo);
             
-            jtfresultado.setText(""+proced.resultado(b, a, n));
+            jtfresultado.setText(""+proced.resultado(b, a, n)*signo);
             }else{
                                
                a=Integer.parseInt(jtfA.getText());
@@ -297,8 +307,8 @@ public class jfMetTrapecioMetNum extends javax.swing.JFrame {
             //suma=proced.suma(K_f, n);
            // resultado=proced.resultado(Ax, suma);
             jtfsuma.setText(""+0);
-                jtfresultado.setText(""+proced.resultado2(b, a, n));
-                JOptionPane.showMessageDialog(null, "Usuario, debe cumplir con el número de iteraciones mínimas (3).");
+                jtfresultado.setText(""+proced.resultado2(b, a, n)*signo);
+                JOptionPane.showMessageDialog(null, "Usuario, selecciono el método especial.");
                 jtfIteraciones.requestFocus();
             }
         }catch(Exception e){
